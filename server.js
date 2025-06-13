@@ -5,13 +5,13 @@ const schoolRoutes = require('./routes/schoolRoutes');
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('School Management API ✅'));
+app.get('/', (req, res) => res.send('School Management API is live!'));
 app.use('/api', schoolRoutes);
 
-// Web server binding
-const WEB_PORT = process.env.PORT || 5000;
-const HOST = '0.0.0.0';
+// 🔥 Critical section:
+const port = parseInt(process.env.PORT, 10) || 5000;
+const host = '0.0.0.0'; // Must be literal this string
 
-app.listen(WEB_PORT, HOST, () => {
-  console.log(`Server running on http://${HOST}:${WEB_PORT}`);
+app.listen(port, host, () => {
+  console.log(`Listening on http://${host}:${port}`);
 });
