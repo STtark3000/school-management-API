@@ -9,7 +9,7 @@ app.use(express.json());
 // Routes
 app.use(require('./routes/schoolRoutes')); // Assuming you have this
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 10000;
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server running on http://0.0.0.0:${port}`);
 });
