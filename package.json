@@ -9,10 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A simple Express server deployed on Render",
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

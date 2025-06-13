@@ -3,15 +3,15 @@ require('dotenv').config();
 const schoolRoutes = require('./routes/schoolRoutes');
 
 const app = express();
-app.use(express.json());
 
-app.get('/', (req, res) => res.send('School Management API is live!'));
-app.use('/api', schoolRoutes);
+// Render sets this environment variable internally
+const port = process.env.PORT || 10000;
 
-// 🔥 Critical section:
-const port = parseInt(process.env.PORT, 10) || 5000;
-const host = '0.0.0.0'; // Must be literal this string
+// Bind explicitly to 0.0.0.0 to comply with Render requirements
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is live at http://0.0.0.0:${port}`);
+});
 
-app.listen(port, host, () => {
-  console.log(`Listening on http://${host}:${port}`);
+app.get('/', (req, res) => {
+  res.send('Hello from Render-deployed Express server!');
 });
