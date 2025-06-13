@@ -5,18 +5,13 @@ const schoolRoutes = require('./routes/schoolRoutes');
 const app = express();
 app.use(express.json());
 
-// Optional root route
-app.get('/', (req, res) => {
-  res.send('School Management API ✅');
-
-});
-
-// API routes
+app.get('/', (req, res) => res.send('School Management API ✅'));
 app.use('/api', schoolRoutes);
 
-const PORT = process.env.PORT || 5000;
-const HOST = '0.0.0.0';  // Important for Render
+// Web server binding
+const WEB_PORT = process.env.PORT || 5000;
+const HOST = '0.0.0.0';
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server running on http://${HOST}:${PORT}`);
+app.listen(WEB_PORT, HOST, () => {
+  console.log(`Server running on http://${HOST}:${WEB_PORT}`);
 });
